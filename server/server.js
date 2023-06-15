@@ -3,18 +3,20 @@ const app = express();
 const mysql = require('mysql');
 const cors = require('cors');
 
+//sudo systemctl start snapd.apparmor
+
 app.use(cors())
 app.use(express.json())
 
 const db = mysql.createConnection({
     user: "root",
     host: "localhost",
-    password: "password",
-    database: "employeeSystem"
+    password: "root",
+    database: "eusoulindo"
 });
 
 app.get('/', (req, res) =>{
-    res.send("Eusoulindo")
+    res.send("Eusoulindo");
 });
 
 app.get('/employees', (req, res) =>{
@@ -35,9 +37,10 @@ app.post('/create', (req, res)=>{
 
     db.query(
         'INSERT INTO employees (name, age, country, position, salary) VALUES (?,?,?,?,?)', [name, age, country, position, salary], (err, result) => {
-            if(err)
+            if(err){
                 console.log(err);
-            else
+                res.send(err);
+            }else
                 res.send("Success in insert request!");
         }
     );
