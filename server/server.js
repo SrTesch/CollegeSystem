@@ -12,41 +12,66 @@ const db = mysql.createConnection({
     user: "root",
     host: "localhost",
     password: "root",
-    database: "eusoulindo"
+    database: "college_system"
 });
 
 app.get('/', (req, res) =>{
     res.send("Eusoulindo");
 });
 
-app.get('/employees', (req, res) =>{
-    db.query("SELECT * FROM employees", (err, result) => {
-        if (err)
-            console.log(err)
-        else
-            res.send(result)
+app.post('/cadastroSetor', (req, res)=>{
+    const cod_setor = req.body.cod_setor;
+    const nome = req.body.nome;
+
+    db.query('INSERT INTO setor (cod_setor, nome) VALUES (?,?)', [cod_setor, nome], (err, result)=>{
+        if(err){
+            console.log(err);
+            res.send(err);
+        }else
+            res.send("Setor cadastrado com sucesso!");
     })
 });
 
-app.post('/create', (req, res)=>{
-    const name = req.body.name
-    const age = req.body.age
-    const country = req.body.country
-    const position = req.body.position
-    const salary = req.body.salary
+app.post('/cadastroCurso', (req, res)=>{
+    const cod_curso = req.body.cod_curso;
+    const nome = req.body.nome;
+    const ano_inicio = req.body.ano_inicio;
 
-    db.query(
-        'INSERT INTO employees (name, age, country, position, salary) VALUES (?,?,?,?,?)', [name, age, country, position, salary], (err, result) => {
-            if(err){
-                console.log(err);
-                res.send(err);
-            }else
-                res.send("Success in insert request!");
-        }
-    );
+    db.query('INSERT INTO setor (cod_curso, nome, ano_inicio) VALUES (?,?,?)', [cod_curso, nome, ano_inicio], (err, result)=>{
+        if(err)
+            res.send(err);
+        else
+            res.send("Curso cadastro com sucesso!");
+    });
 });
 
+app.get('/getFunc', (req,res)=>{
+    db.query('SELECT * FROM admFunc', (err,result)=>{
+        if(err)
+            res.send(err);
+        else
+            res.send(result);
+    })
+});
+
+app.get('/getCursos', (req,res)=>{
+    db.query('SELECT * FROM cursos', (err,result)=>{
+        if(err)
+            res.send(err);
+        else
+            res.send(result);
+    })
+});
+
+app.get('/getSetores', (req,res)=>{
+    db.query('SELECT * FROM setor', (err,result)=>{
+        if(err)
+            res.send(err);
+        else
+            res.send(result);
+    })
+});
 
 app.listen(3001, ()=>{
     console.log("Wow, your server is running on port 3001")
-})
+});

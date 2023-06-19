@@ -5,14 +5,14 @@ use college_system;
 
 -- Tabela setores
 create table setor(
-	cod_setor int primary key,
+	  cod_setor int primary key,
     nome varchar(100) not null
 );
 
 
 -- Tabela de Cursos
 create table cursos(
-	cod_curso int primary key,
+	  cod_curso int primary key,
     nome varchar(100) not null,
     ano_inicio int not null
 );

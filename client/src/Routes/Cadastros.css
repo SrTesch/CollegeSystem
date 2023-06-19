@@ -1,0 +1,68 @@
+:root{
+    --cor0: #f3f0f0;
+    --cor1: #0000ff;
+    --cor1h: #3a75f5;
+    --cor2: #474646;
+    --cor2h: #2e2d2d;
+}
+
+h1{
+    text-align: center;
+}
+
+.homeButton{
+    text-decoration: none;
+    color: var(--cor0);
+    background-color: var(--cor2);
+    padding: 7px;
+    border-radius: 10px;
+    transition-duration: .3s;
+    border: none;
+}
+
+.homeButton:hover{
+    box-shadow: 1px 1px 1px #00000093;
+    background-color: var(--cor2h);
+}
+
+.updateList{
+    color: #f3f0f0;
+    background-color: var(--cor2);
+    box-shadow: none;
+    border: none;
+    padding: 7px;
+    position: absolute;
+    right: 7px;
+    border-radius: 10px;
+    transition-duration: .5s;
+}
+
+.updateList:hover{
+    box-shadow: 1px 1px 1px #00000093;
+    background-color: var(--cor2h);
+}
+
+.AddNew{
+    color: var(--cor0);
+    background-color: var(--cor2);
+    box-shadow: none;
+    border: none;
+    padding: 7px;
+    position: absolute;
+    right: 97px;
+    border-radius: 10px;
+    transition-duration: .5s;
+}
+
+.AddNew:hover{
+    box-shadow: 1px 1px 1px #00000093;
+    background-color: var(--cor2h);
+}
+
+
+.tableList{
+    width: 100%;
+    min-height: 100px;
+    background-color: red;
+    color: white;
+}
