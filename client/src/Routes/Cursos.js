@@ -17,15 +17,15 @@ export default function Cursos(){
             <h1>CURSOS</h1>
             <button className="AddNew">Novo Curso</button>
             <button onClick={updateList} className="updateList">Atualizar</button>
+            <div className="tableList">
             {cursos.map((val,key) =>{
                 return(
-                    <div className="tableList">
                     <span className="itemList">
                     {val.nome} <br />
                     </span>
-                    </div>
                 );
             })}
+            </div>
         </div>
     )
 }

@@ -20,7 +20,7 @@ group by cod_curso;
 -- 1.8.4
 select m.CPF_aluno, m.cod_disc, COUNT(*) as num_reprovacoes
 from matricula as m
-join notas as non m.CPF_aluno = n.CPF_aluno and m.cod_disc = n.cod_disc
+join notas as n on m.CPF_aluno = n.CPF_aluno and m.cod_disc = n.cod_disc
 where n.nota < 6 -- Considerando nota 6 como aprovação
 group by m.CPF_aluno, m.cod_disc
 having num_reprovacoes > 3;
@@ -28,15 +28,15 @@ having num_reprovacoes > 3;
 -- 1.8.5
 select s.nome as departamento, SUM(f.salario) as folha_pagamento
 from setor as s
-left join admFunc as fon s.cod_setor = f.cod_setor
-left join professores as pon s.cod_setor = p.cod_curso
+left join admFunc as f on s.cod_setor = f.cod_setor
+left join professores as p on s.cod_setor = p.cod_curso
 group by s.nome
 order by folha_pagamento desc;
 
 --1.8.6
 select d.cod_disc, d.nome as disciplina, AVG(n.nota) as media_final
 from disciplina as d
-join notas as non d.cod_disc = n.cod_disc
+join notas as n on d.cod_disc = n.cod_disc
 where d.CPF_prof = 'CPF_DO_PROFESSOR' -- Substituindo por um cpf específico
 group by d.cod_disc, d.nome;
 

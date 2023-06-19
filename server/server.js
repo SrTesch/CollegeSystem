@@ -46,14 +46,11 @@ app.post('/cadastroCurso', (req, res)=>{
 });
 
 app.get('/getFunc', (req,res)=>{
-    db.query('SELECT * FROM college_system.admFunc', (err,result)=>{
+    db.query('SELECT * FROM admFunc', (err,result)=>{
         if(err)
             res.send(err);
-        else{
-            console.log("teste");
-            res.send(result);
-
-        }    
+        else
+            res.send(result);  
     })
 });
 

@@ -18,15 +18,15 @@ export default function Setor(){
             <h1>SETORES</h1>
             <button className="AddNew">Novo Setor</button>
             <button onClick={updateList} className="updateList">Atualizar</button>
+            <div className="tableList">
             {setores.map((val,key) =>{
                 return(
-                    <div className="tableList">
                     <span className="itemList">
                         {val.nome}
                     </span>
-                    </div>
                 );
             })}
+            </div>
         </div>
     )
 }

@@ -62,6 +62,7 @@ create table disciplina (
 create table matricula(
 cod_disc int,
 CPF_aluno char(11),
+data_inicio date,
 foreign key(cod_disc) references disciplina(cod_disc),
 foreign key(CPF_aluno) references aluno(CPF)
 );
