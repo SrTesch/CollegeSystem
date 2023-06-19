@@ -1,13 +1,16 @@
 :root{
-  --cor0: #f3f0f0;
-  --cor1: #0000ff;
-  --cor1h: #3a75f5;
-  --cor2: #474646;
-  --cor2h: #2e2d2d;
+  --cor0: #b3aca4;
+  --cor1: #157a8c;
+  --cor1h: #106b87;
+  --cor2: #003f69;
+  --cor2h: #260d33;
 }
+
+
 *{
   font-family: 'Courier New', Courier, monospace;
 }
+
 .App {
   display: flex;
   flex-direction: column;
@@ -17,9 +20,18 @@
 
 body{
   color: azure;
-  background-color: #0000ff;
+  background-color: #260d33;
 }
 
+h1{
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.555);
+  background-color: var(--cor0);
+  border-radius: 15px;
+  padding: 10px;
+  width: fit-content;
+  margin: auto;
+  margin-bottom: 8px;
+}
 
 nav{
   width: 35%;

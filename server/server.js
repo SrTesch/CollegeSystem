@@ -11,7 +11,7 @@ app.use(express.json())
 const db = mysql.createConnection({
     user: "root",
     host: "localhost",
-    password: "root",
+    password: "password",
     database: "college_system"
 });
 
@@ -46,11 +46,14 @@ app.post('/cadastroCurso', (req, res)=>{
 });
 
 app.get('/getFunc', (req,res)=>{
-    db.query('SELECT * FROM admFunc', (err,result)=>{
+    db.query('SELECT * FROM college_system.admFunc', (err,result)=>{
         if(err)
             res.send(err);
-        else
+        else{
+            console.log("teste");
             res.send(result);
+
+        }    
     })
 });
 
@@ -71,6 +74,16 @@ app.get('/getSetores', (req,res)=>{
             res.send(result);
     })
 });
+
+app.get('/getDisc', (req,res)=>{
+    db.query('SELECT * FROM disciplinas', (err,result)=>{
+        if(err)
+            res.send(err);
+        else
+            res.send(result);
+    })
+});
+
 
 app.listen(3001, ()=>{
     console.log("Wow, your server is running on port 3001")

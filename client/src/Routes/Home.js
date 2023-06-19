@@ -9,7 +9,8 @@ export default function Home(){
             <nav>
             <Link to="/setor" className="navButtons">Setores</Link> <br />
             <Link to="/cursos" className="navButtons">Cursos</Link> <br />
-            <Link to="/func" className="navButtons">Funcionarios</Link>
+            <Link to="/func" className="navButtons">Funcionarios</Link> <br />
+            <Link to="/disc" className="navButtons">Disciplinas</Link>
             </nav>
         </div>
     )

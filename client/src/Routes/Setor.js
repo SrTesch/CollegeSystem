@@ -24,7 +24,6 @@ export default function Setor(){
                     <span className="itemList">
                         {val.nome}
                     </span>
-                    <hr />
                     </div>
                 );
             })}

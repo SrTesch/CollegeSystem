@@ -5,6 +5,7 @@ import Home from "./Home";
 import Setor from "./Setor";
 import Cursos from "./Cursos";
 import Func from "./Funcionarios";
+import Disciplinas from "./disciplinas";
 
 const Rotas = () => {
    return(
@@ -14,6 +15,7 @@ const Rotas = () => {
             <Route path="/setor" element={<Setor />}/>
             <Route path="/cursos" element={<Cursos />}/>
             <Route path="/func" element={<Func />}/>
+            <Route path="/disc" element={<Disciplinas />}/>
         </Routes>
        </BrowserRouter>
    )

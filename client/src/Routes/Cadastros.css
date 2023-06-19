@@ -1,9 +1,9 @@
 :root{
-    --cor0: #f3f0f0;
-    --cor1: #0000ff;
-    --cor1h: #3a75f5;
-    --cor2: #474646;
-    --cor2h: #2e2d2d;
+    --cor0: #b3aca4;
+    --cor1: #157a8c;
+    --cor1h: #106b87;
+    --cor2: #003f69;
+    --cor2h: #260d33;
 }
 
 h1{
@@ -12,7 +12,7 @@ h1{
 
 .homeButton{
     text-decoration: none;
-    color: var(--cor0);
+    color: #f3f0f0;
     background-color: var(--cor2);
     padding: 7px;
     border-radius: 10px;
@@ -35,6 +35,7 @@ h1{
     right: 7px;
     border-radius: 10px;
     transition-duration: .5s;
+    cursor: pointer;
 }
 
 .updateList:hover{
@@ -43,7 +44,7 @@ h1{
 }
 
 .AddNew{
-    color: var(--cor0);
+    color: #f3f0f0;
     background-color: var(--cor2);
     box-shadow: none;
     border: none;
@@ -52,6 +53,7 @@ h1{
     right: 97px;
     border-radius: 10px;
     transition-duration: .5s;
+    cursor: pointer;
 }
 
 .AddNew:hover{
@@ -61,8 +63,11 @@ h1{
 
 
 .tableList{
-    width: 100%;
+    margin-top: 40px;
+    width: 97.5%;
     min-height: 100px;
-    background-color: red;
+    background-color: var(--cor2);
     color: white;
+    padding: 15px;
+    border-radius: 15px;
 }

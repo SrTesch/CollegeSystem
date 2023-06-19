@@ -23,7 +23,6 @@ export default function Cursos(){
                     <span className="itemList">
                     {val.nome} <br />
                     </span>
-                    <hr />
                     </div>
                 );
             })}

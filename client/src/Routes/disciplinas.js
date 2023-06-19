@@ -1,16 +1,16 @@
-import React, { useState } from "react";
+import React , { useState } from "react";
 import { Link } from "react-router-dom";
 import Axios from 'axios';
 import './Cadastros.css'
 
-export default function Func(){
-    const [funcs, setFuncs] = useState([]);
+export default function Disciplinas(){
+    const [disc, setDisc] = useState([]);
 
     const updateList = () =>{
-        Axios.get("http://localhost:3001/getFunc").then((response)=>{
+        Axios.get("http://localhost:3001/getDisc").then((response)=>{
           console.log(response.data);
           console.log("passei no updateList");
-          setFuncs(response.data);
+          setDisc(response.data);
         });
     }
     const addNew = () =>{
@@ -23,11 +23,11 @@ export default function Func(){
     return(
         <div>
             <Link to="/" className="homeButton">voltar para menu</Link>
-            <h1>FUNCIONÁRIOS</h1>
-            <button className="AddNew" onClick={addNew}>Novo Funcionário</button>
+            <h1>DISCIPLINAS</h1>
+            <button className="AddNew" onClick={addNew}>Nova Disciplina</button>
             <button onClick={updateList} className="updateList">Atualizar</button>
             <div className="tableList">
-                {funcs.map((val,key) =>{
+                {disc.map((val,key) =>{
                     return(
                         <span className="itemList">
                         {val.nome} <br />
