@@ -60,9 +60,9 @@ group by c.cod_curso, c.nome;
 
 --1.8.10
 select d.cod_disc, d.nome as disciplina, 
-       COUNT(CasE WHEN n.nota < 6 THEN 1 END) as num_reprovados,
-       COUNT(CasE WHEN n.nota >= 6 THEN 1 END) as num_aprovados,
-       (COUNT(CasE WHEN n.nota < 6 THEN 1 END) / COUNT(*)) * 100 as taxa_reprovacao
+       COUNT(case when n.nota < 6 then 1 end) as num_reprovados,
+       COUNT(case when n.nota >= 6 then 1 end) as num_aprovados,
+       (COUNT(case when n.nota < 6 then 1 end) / COUNT(*)) * 100 as taxa_reprovacao
 from disciplina as d
 join notas as n ON d.cod_disc = n.cod_disc
 WHERE n.data_avaliacao between '2022-01-01' and '2022-12-31' -- Substituindo por uma data de sua necessidade

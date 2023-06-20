@@ -1,73 +1,105 @@
 :root{
-    --cor0: #b3aca4;
-    --cor1: #157a8c;
-    --cor1h: #106b87;
-    --cor2: #003f69;
-    --cor2h: #260d33;
+    --cor0: #f56e64;
+    --cor1: #06badd;
+    --cor1h: #0885a5;
+    --cor2: #6a6367;
+    --cor2h: #221f24;
 }
 
 h1{
     text-align: center;
 }
-
-.homeButton{
+.deleteItem{
     text-decoration: none;
-    color: #f3f0f0;
-    background-color: var(--cor2);
+    color: white;
+    background-color: var(--cor2h);
     padding: 7px;
     border-radius: 10px;
     transition-duration: .3s;
-    border: none;
+    margin-bottom: 5px;
+    border: 2px solid var(--cor2h);
+    text-shadow: 1px 1px 1px #00000081;
+    font-weight: bolder;
+    cursor: pointer;
+    position: absolute;
+    right: 117px;
 }
-
-.homeButton:hover{
-    box-shadow: 1px 1px 1px #00000093;
+.homeButton{
+    text-decoration: none;
+    color: white;
     background-color: var(--cor2h);
+    padding: 7px;
+    border-radius: 10px;
+    transition-duration: .3s;
+    margin-bottom: 5px;
+    border: 2px solid var(--cor2h);
+    text-shadow: 1px 1px 1px #00000081;
+    font-weight: bolder;
 }
-
 .updateList{
-    color: #f3f0f0;
-    background-color: var(--cor2);
-    box-shadow: none;
-    border: none;
+    text-decoration: none;
+    color: white;
+    background-color: var(--cor2h);
+    border-radius: 10px;
+    transition-duration: .3s;
+    margin-bottom: 5px;
+    border: 2px solid var(--cor2h);
+    text-shadow: 1px 1px 1px #00000081;
+    font-weight: bolder;
+    cursor: pointer;
     padding: 7px;
     position: absolute;
-    right: 7px;
-    border-radius: 10px;
-    transition-duration: .5s;
-    cursor: pointer;
+    right: 20px;
 }
 
-.updateList:hover{
-    box-shadow: 1px 1px 1px #00000093;
-    background-color: var(--cor2h);
+.updateList:hover, .AddNew:hover, .homeButton:hover, .deleteItem:hover{
+    box-shadow: 2px 2px 2px #f56e6488;
+    border: 2px solid var(--cor0);
 }
 
 .AddNew{
-    color: #f3f0f0;
-    background-color: var(--cor2);
-    box-shadow: none;
-    border: none;
-    padding: 7px;
-    position: absolute;
-    right: 97px;
-    border-radius: 10px;
-    transition-duration: .5s;
-    cursor: pointer;
-}
-
-.AddNew:hover{
-    box-shadow: 1px 1px 1px #00000093;
+    text-decoration: none;
+    color: white;
     background-color: var(--cor2h);
+    padding: 7px;
+    border-radius: 10px;
+    transition-duration: .3s;
+    margin-bottom: 5px;
+    border: 2px solid var(--cor2h);
+    text-shadow: 1px 1px 1px #00000081;
+    font-weight: bolder;
+    cursor: pointer;
+    position: absolute;
+    right: 197px;
 }
 
 
 .tableList{
-    margin-top: 40px;
+    margin-top: 45px;
     width: 97.5%;
     min-height: 100px;
     background-color: var(--cor2);
     color: white;
     padding: 15px;
     border-radius: 15px;
+}
+
+
+.titleList{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 5px;
+}
+
+.itemList{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.atributo{
+    width: 300px;
 }

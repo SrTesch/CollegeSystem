@@ -6,11 +6,13 @@ export default function Home(){
         <div>
             <h1>CollegeSystem</h1>
 
-            <nav>
+            <nav className="navInicial">
             <Link to="/setor" className="navButtons">Setores</Link> <br />
             <Link to="/cursos" className="navButtons">Cursos</Link> <br />
-            <Link to="/func" className="navButtons">Funcionarios</Link> <br />
-            <Link to="/disc" className="navButtons">Disciplinas</Link>
+            <Link to="/disc" className="navButtons">Disciplinas</Link> <br />
+            <Link to="/func" className="navButtons">Funcionários</Link> <br />
+            <Link className="navButtons">Professores</Link> <br />
+            <Link className="navButtons">Alunos</Link>
             </nav>
         </div>
     )

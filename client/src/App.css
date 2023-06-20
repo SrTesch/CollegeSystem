@@ -1,9 +1,9 @@
 :root{
-  --cor0: #b3aca4;
-  --cor1: #157a8c;
-  --cor1h: #106b87;
-  --cor2: #003f69;
-  --cor2h: #260d33;
+  --cor0: #f56e64;
+  --cor1: #06badd;
+  --cor1h: #0885a5;
+  --cor2: #6a6367;
+  --cor2h: #221f24;
 }
 
 
@@ -20,7 +20,7 @@
 
 body{
   color: azure;
-  background-color: #260d33;
+  background-color: var(--cor2h);
 }
 
 h1{
@@ -41,15 +41,28 @@ nav{
 }
 .navButtons{
   text-decoration: none;
-  color: var(--cor0);
-  background-color: var(--cor2);
+  color: white;
   padding: 7px;
   border-radius: 10px;
   transition-duration: .3s;
   margin-bottom: 5px;
+  border: 2px solid var(--cor2);
+  text-shadow: 1px 1px 1px #00000081;
+  font-weight: bolder;
 }
 
 .navButtons:hover{
-  box-shadow: 1px 1px 1px #00000093;
-  background-color: var(--cor2h);
+  box-shadow: 2px 2px 2px #f56e6488;
+  border: 2px solid var(--cor0);
+}
+
+.navInicial{
+  margin-top: 20px;
+  background-color: var(--cor2);
+  display: flex;
+  width: 450px;
+  flex-direction: column;
+  text-align: center;
+  border-radius: 15px;
+  padding: 15px;
 }
