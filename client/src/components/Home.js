@@ -11,8 +11,8 @@ export default function Home(){
             <Link to="/cursos" className="navButtons">Cursos</Link> <br />
             <Link to="/disc" className="navButtons">Disciplinas</Link> <br />
             <Link to="/func" className="navButtons">Funcionários</Link> <br />
-            <Link className="navButtons">Professores</Link> <br />
-            <Link className="navButtons">Alunos</Link>
+            <Link to="/profs" className="navButtons">Professores</Link> <br />
+            <Link to="/alunos" className="navButtons">Alunos</Link>
             </nav>
         </div>
     )

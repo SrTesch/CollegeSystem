@@ -1,11 +1,13 @@
 import React from "react";
 import { Route, Routes, BrowserRouter } from "react-router-dom";
 
-import Home from "./Home";
-import Setor from "./Setor";
-import Cursos from "./Cursos";
-import Func from "./Funcionarios";
-import Disciplinas from "./disciplinas";
+import Home from "../components/Home";
+import Setor from "../components/Setor";
+import Cursos from "../components/Cursos";
+import Func from "../components/Funcionarios";
+import Disciplinas from "../components/disciplinas";
+import Professores from "../components/professores";
+import Alunos from "../components/aluno";
 
 const Rotas = () => {
    return(
@@ -16,6 +18,8 @@ const Rotas = () => {
             <Route path="/cursos" element={<Cursos />}/>
             <Route path="/func" element={<Func />}/>
             <Route path="/disc" element={<Disciplinas />}/>
+            <Route path="/profs" element={<Professores />}/>
+            <Route path="/alunos" element={<Alunos />}/>
         </Routes>
        </BrowserRouter>
    )
