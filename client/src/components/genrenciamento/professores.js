@@ -71,9 +71,10 @@ export default function Professores(){
         <div>
             <Link to="/" className="homeButton">voltar para menu</Link>
             <h1>PROFESSORES</h1>
-            <button className="AddNew" onClick={useShowForm}>Novo Professor</button>
-            <button className="deleteItem" onClick={useDeleteForm}>Deletar</button>
-            <button onClick={updateList} className="updateList">Atualizar</button>
+            <div class="buttonsAddDelete">
+                <button className="AddNew" onClick={useShowForm}>Novo Professor</button>
+                <button className="deleteItem" onClick={useDeleteForm}>Deletar</button>
+            </div>
             <div className="tableList">
                 <span className="titleList">
                     <span className="atributo">
@@ -101,99 +102,101 @@ export default function Professores(){
                 <hr />
                 {deleteForm && (
                     <div className="formDelete">
-                    <label>
-                        Cpf do Professor que deseja remover:
-                        <input type="text" 
-                            value={cpf}
-                            onChange={(e) => setCPF(e.target.value)}
-                            required
-                        />
-                    </label>
-                    <button onClick={deleteItem}>Remover</button>
-                    {deleteMessage && (<span>Professor Deletado!!!</span>)}
+                        <form onSubmit={deleteItem}>
+                            <button className="closePopUp" onClick={e=>{setDeleteForm(false)}}>X</button>
+                            <h1 className="formtitle" style={{marginBottom: '15px'}}>Deleção</h1>
+                            Cpf do Professor que deseja remover:
+                            <input type="text"
+                                value={cpf}
+                                onChange={(e) => setCPF(e.target.value)}
+                                required
+                            />
+                            <button type="submit" className="submiting">Remover</button>
+                            {deleteMessage && (<span>Professor Deletado!!!</span>)}
+                        </form>
                     </div>
                 )}
                 {showForm && (
                     <div className="formAdd">
-                    <label>
-                        CPF:
-                        <input type="text" 
-                            value={cpf}
-                            onChange={(e) => setCPF(e.target.value)}
-                            required
-                        />
-                    </label>
-                    <label>
-                        Nome:
-                        <input type="text"
-                            value={nome}
-                            onChange={(e) => setNome(e.target.value)}
-                            required
-                        />
-                    </label>
-                    <label>
-                        Telefone:
-                        <input type="text"
-                            value={telefone}
-                            onChange={(e) => setTelefone(e.target.value)}
-                            required
-                        />
-                    </label>
-                    <label>
-                        Endereço:
-                        <input type="text"
-                            value={endereco}
-                            onChange={(e) => setEndereco(e.target.value)}
-                            required
-                        />
-                    </label>
-                    <label>
-                        Data de Contratação:
-                        <input type="date"
-                            value={data_contratacao}
-                            onChange={(e) => setDataContratacao(e.target.value)}
-                            required
-                        />
-                    </label>
-                    <label>
-                        Salário:
-                        <input type="number"
-                            value={salario}
-                            onChange={(e) => setSalario(e.target.value)}
-                            required
-                        />
-                    </label>
-                    <label>
-                        Ativo:
-                        <input type="boolean"
-                            value={ativo}
-                            onChange={(e) => setAtivo(e.target.value)}
-                            required
-                        />
-                    </label>
-                    <label>
-                        Código do Curso:
-                        <input type="number"
-                            value={cod_curso}
-                            onChange={(e) => setCodCurso(e.target.value)}
-                            required
-                        />
-                    </label>
-                    <button onClick={addNew}>Salvar</button>
-                    {successMessage && (<span>Professor cadastrado!!!</span>)}
+                        <form onSubmit={addNew}>
+                            <button className="closePopUp" onClick={e=>{setShowForm(false)}}>X</button>
+                            <h1 className="formtitle" style={{marginBottom: '15px'}}>Cadastro</h1>
+                            CPF:
+                            <input type="text"
+                                value={cpf}
+                                onChange={(e) => setCPF(e.target.value)}
+                                required
+                            />
+                            Nome:
+                            <input type="text"
+                                value={nome}
+                                onChange={(e) => setNome(e.target.value)}
+                                required
+                            />
+                            Telefone:
+                            <input type="text"
+                                value={telefone}
+                                onChange={(e) => setTelefone(e.target.value)}
+                                required
+                            />
+                            Endereço:
+                            <input type="text"
+                                value={endereco}
+                                onChange={(e) => setEndereco(e.target.value)}
+                                required
+                            />
+                            Data de Contratação:
+                            <input type="date"
+                                value={data_contratacao}
+                                onChange={(e) => setDataContratacao(e.target.value)}
+                                required
+                            />
+                            Salário:
+                            <input type="number"
+                                value={salario}
+                                onChange={(e) => setSalario(e.target.value)}
+                                required
+                            />
+                            Ativo:
+                            <input type="boolean"
+                                value={ativo}
+                                onChange={(e) => setAtivo(e.target.value)}
+                                required
+                            />
+                            Código do Curso:
+                            <input type="number"
+                                value={cod_curso}
+                                onChange={(e) => setCodCurso(e.target.value)}
+                                required
+                            />
+                            <button type="submit" className="submiting">Salvar</button>
+                            {successMessage && (<span>Professor cadastrado!!!</span>)}
+                        </form>
                     </div>
                 )}
                 {funcs.map((val,key) =>{
                     return(
                         <span className="itemList">
                         <span className="atributo">
+                            {val.CPF}
+                        </span>
+                        <span className="atributo">
                             {val.nome}
                         </span>
                         <span className="atributo">
-                            {val.salário}
+                            {val.telefone}
                         </span>
                         <span className="atributo">
-                            {val.CPF}
+                            {val.data_contratacao}
+                        </span>
+                        <span className="atributo">
+                            {val.salario}
+                        </span>
+                        <span className="atributo">
+                            {val.ativo}
+                        </span>
+                        <span className="atributo">
+                            {val.cod_curso}
                         </span>
                         <br />
                         </span>

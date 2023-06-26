@@ -65,9 +65,10 @@ export default function Func(){
         <div>
             <Link to="/" className="homeButton">voltar para menu</Link>
             <h1>FUNCIONÁRIOS</h1>
-            <button className="AddNew" onClick={useShowForm}>Novo Funcionário</button>
-            <button className="deleteItem" onClick={useDeleteForm}>Deletar</button>
-            <button onClick={updateList} className="updateList">Atualizar</button>
+            <div class="buttonsAddDelete">
+                <button className="AddNew" onClick={useShowForm}>Novo Funcionário</button>
+                <button className="deleteItem" onClick={useDeleteForm}>Deletar</button>
+            </div>
             <div className="tableList">
                 <span className="titleList">
                     <span className="atributo">
@@ -83,62 +84,58 @@ export default function Func(){
                 <hr />
                 {deleteForm && (
                     <div className="formDelete">
-                    <label>
-                        Cpf do Funcionário que deseja remover:
-                        <input type="text" 
-                            value={cpf}
-                            onChange={(e) => setCPF(e.target.value)}
-                            required
-                        />
-                    </label>
-                    <button onClick={deleteItem}>Remover</button>
-                    {deleteMessage && (<span>Funcionário Deletado!!!</span>)}
+                        <form onSubmit={deleteItem}>
+                        <button className="closePopUp" onClick={e=>{setDeleteForm(false)}}>X</button>
+                            <h1 className="formtitle" style={{marginBottom: '15px'}}>Deleção</h1>
+                            Cpf do Funcionário que deseja remover:
+                            <input type="text"
+                                value={cpf}
+                                onChange={(e) => setCPF(e.target.value)}
+                                required
+                            />
+                            <button type="submit" className="submiting">Remover</button>
+                            {deleteMessage && (<span>Funcionário Deletado!!!</span>)}
+                        </form>
                     </div>
                 )}
                 {showForm && (
                     <div className="formAdd">
-                    <label>
-                        CPF:
-                        <input type="text" 
-                            value={cpf}
-                            onChange={(e) => setCPF(e.target.value)}
-                            required
-                        />
-                    </label>
-                    <label>
-                        Nome:
-                        <input type="text"
-                            value={nome}
-                            onChange={(e) => setNome(e.target.value)}
-                            required
-                        />
-                    </label>
-                    <label>
-                        Endereço:
-                        <input type="text"
-                            value={endereco}
-                            onChange={(e) => setEndereco(e.target.value)}
-                            required
-                        />
-                    </label>
-                    <label>
-                        Salário:
-                        <input type="number"
-                            value={salario}
-                            onChange={(e) => setSalario(e.target.value)}
-                            required
-                        />
-                    </label>
-                    <label>
-                        Código do Setor:
-                        <input type="number"
-                            value={cod_setor}
-                            onChange={(e) => setCodSetor(e.target.value)}
-                            required
-                        />
-                    </label>
-                    <button onClick={addNew}>Salvar</button>
-                    {successMessage && (<span>Funcionário cadastrado!!!</span>)}
+                        <form onSubmit={addNew}>
+                        <button className="closePopUp" onClick={e=>{setShowForm(false)}}>X</button>
+                            <h1 className="formtitle" style={{marginBottom: '15px'}}>Cadastro</h1>
+                            CPF:
+                            <input type="text"
+                                value={cpf}
+                                onChange={(e) => setCPF(e.target.value)}
+                                required
+                            />
+                            Nome:
+                            <input type="text"
+                                value={nome}
+                                onChange={(e) => setNome(e.target.value)}
+                                required
+                            />
+                            Endereço:
+                            <input type="text"
+                                value={endereco}
+                                onChange={(e) => setEndereco(e.target.value)}
+                                required
+                            />
+                            Salário:
+                            <input type="number"
+                                value={salario}
+                                onChange={(e) => setSalario(e.target.value)}
+                                required
+                            />
+                            Código do Setor:
+                            <input type="number"
+                                value={cod_setor}
+                                onChange={(e) => setCodSetor(e.target.value)}
+                                required
+                            />
+                            <button type="submit" className="submiting">Salvar</button>
+                            {successMessage && (<span>Funcionário cadastrado!!!</span>)}
+                        </form>
                     </div>
                 )}
                 {funcs.map((val,key) =>{

@@ -64,10 +64,11 @@ export default function Alunos(){
     return(
         <div>
             <Link to="/" className="homeButton">voltar para menu</Link>
-            <h1>PROFESSORES</h1>
-            <button className="AddNew" onClick={useShowForm}>Novo Professor</button>
-            <button className="deleteItem" onClick={useDeleteForm}>Deletar</button>
-            <button onClick={updateList} className="updateList">Atualizar</button>
+            <h1>Alunos</h1>
+            <div class="buttonsAddDelete">
+                <button className="AddNew" onClick={useShowForm}>Novo Aluno</button>
+                <button className="deleteItem" onClick={useDeleteForm}>Deletar</button>
+            </div>
             <div className="tableList">
                 <span className="titleList">
                     <span className="atributo">
@@ -89,62 +90,58 @@ export default function Alunos(){
                 <hr />
                 {deleteForm && (
                     <div className="formDelete">
-                    <label>
-                        Cpf do Aluno que deseja remover:
-                        <input type="text" 
-                            value={cpf}
-                            onChange={(e) => setCPF(e.target.value)}
-                            required
-                        />
-                    </label>
-                    <button onClick={deleteItem}>Remover</button>
-                    {deleteMessage && (<span>Aluno Deletado!!!</span>)}
+                        <form onSubmit={deleteItem}>
+                            <button className="closePopUp" onClick={e=>{setDeleteForm(false)}}>X</button>
+                            <h1 className="formtitle" style={{marginBottom: '15px'}}>Deleção</h1>
+                            Cpf do Aluno que deseja remover:
+                            <input type="text"
+                                value={cpf}
+                                onChange={(e) => setCPF(e.target.value)}
+                                required
+                            />
+                            <button className="submiting" type="submit">Remover</button>
+                            {deleteMessage && (<span>Aluno Deletado!!!</span>)}
+                        </form>
                     </div>
                 )}
                 {showForm && (
                     <div className="formAdd">
-                    <label>
-                        CPF:
-                        <input type="text" 
-                            value={cpf}
-                            onChange={(e) => setCPF(e.target.value)}
-                            required
-                        />
-                    </label>
-                    <label>
-                        Nome:
-                        <input type="text"
-                            value={nome}
-                            onChange={(e) => setNome(e.target.value)}
-                            required
-                        />
-                    </label>
-                    <label>
-                        Telefone:
-                        <input type="text"
-                            value={telefone}
-                            onChange={(e) => setTelefone(e.target.value)}
-                            required
-                        />
-                    </label>
-                    <label>
-                        Endereço:
-                        <input type="text"
-                            value={endereco}
-                            onChange={(e) => setEndereco(e.target.value)}
-                            required
-                        />
-                    </label>
-                    <label>
-                        Ativo:
-                        <input type="boolean"
-                            value={ativo}
-                            onChange={(e) => setAtivo(e.target.value)}
-                            required
-                        />
-                    </label>
-                    <button onClick={addNew}>Salvar</button>
-                    {successMessage && (<span>Aluno cadastrado!!!</span>)}
+                        <form onSubmit={addNew}>
+                            <button className="closePopUp" onClick={e=>{setShowForm(false)}}>X</button>
+                            <h1 className="formtitle" style={{marginBottom: '15px'}}>Cadastro</h1>
+                            CPF:
+                            <input type="text"
+                                value={cpf}
+                                onChange={(e) => setCPF(e.target.value)}
+                                required
+                            />
+                            Nome:
+                            <input type="text"
+                                value={nome}
+                                onChange={(e) => setNome(e.target.value)}
+                                required
+                            />
+                            Telefone:
+                            <input type="text"
+                                value={telefone}
+                                onChange={(e) => setTelefone(e.target.value)}
+                                required
+                            />
+                            Endereço:
+                            <input type="text"
+                                value={endereco}
+                                onChange={(e) => setEndereco(e.target.value)}
+                                required
+                            />
+                            Ativo:
+                            <input type="boolean"
+                                value={ativo}
+                                onChange={(e) => setAtivo(e.target.value)}
+                                required
+                            />
+                            <button className="submiting" type="submit">Salvar</button>
+                            {successMessage && (<span>Aluno cadastrado!!!</span>)}
+                        </form>
                     </div>
                 )}
                 {funcs.map((val,key) =>{

@@ -60,9 +60,10 @@ export default function Cursos(){
         <div>
             <Link to="/" className="homeButton">voltar para menu</Link>
             <h1>CURSOS</h1>
-            <button className="AddNew" onClick={useShowForm}>Novo Curso</button>
-            <button className="deleteItem" onClick={useDeleteForm}>Deletar</button>
-            <button onClick={updateList} className="updateList">Atualizar</button>
+            <div class="buttonsAddDelete">
+                <button className="AddNew" onClick={useShowForm}>Novo Curso</button>
+                <button className="deleteItem" onClick={useDeleteForm}>Deletar</button>
+            </div>
             <div className="tableList">
             <span className="titleList">
                 <span className="atributo">
@@ -78,46 +79,46 @@ export default function Cursos(){
             <hr />
             {deleteForm && (
                     <div className="formDelete">
-                    <label>
-                        Código do curso que deseja remover:
-                        <input type="text" 
-                            value={cod_curso}
-                            onChange={(e) => setCodCurso(e.target.value)}
-                            required
-                        />
-                    </label>
-                    <button onClick={deleteItem}>Remover</button>
-                    {deleteMessage && (<span>Curso Deletado!!!</span>)}
+                        <form onSubmit={deleteItem}>
+                        <button className="closePopUp" onClick={e=>{setDeleteForm(false)}}>X</button>
+                            <h1 className="formtitle" style={{marginBottom: '15px'}}>Deleção</h1>
+                            Código do curso que deseja remover:
+                            <input type="text"
+                                value={cod_curso}
+                                onChange={(e) => setCodCurso(e.target.value)}
+                                required
+                            />
+                            <button className="submiting" type="submit">Remover</button>
+                            {deleteMessage && (<span>Curso Deletado!!!</span>)}
+                        </form>
                     </div>
                 )}
             {showForm && (
                     <div className="formAdd">
-                    <label>
-                        Código do Curso:
-                        <input type="text" 
-                            value={cod_curso}
-                            onChange={(e) => setCodCurso(e.target.value)}
-                            required
-                        />
-                    </label>
-                    <label>
-                        Nome:
-                        <input type="text"
-                            value={nome}
-                            onChange={(e) => setNome(e.target.value)}
-                            required
-                        />
-                    </label>
-                    <label>
-                        Ano de início:
-                        <input type="number"
-                            value={ano_inicio}
-                            onChange={(e) => setAnoInicio(e.target.value)}
-                            required
-                        />
-                    </label>
-                    <button onClick={addNew}>Salvar</button>
-                    {successMessage && (<span>Curso cadastrado!!!</span>)}
+                        <form onSubmit={addNew}>
+                        <button className="closePopUp" onClick={e=>{setShowForm(false)}}>X</button>
+                            <h1 className="formtitle" style={{marginBottom: '15px'}}>Cadastro</h1>
+                            Código do Curso:
+                            <input type="text"
+                                value={cod_curso}
+                                onChange={(e) => setCodCurso(e.target.value)}
+                                required
+                            />
+                            Nome:
+                            <input type="text"
+                                value={nome}
+                                onChange={(e) => setNome(e.target.value)}
+                                required
+                            />
+                            Ano de início:
+                            <input type="number"
+                                value={ano_inicio}
+                                onChange={(e) => setAnoInicio(e.target.value)}
+                                required
+                            />
+                            <button type="submit" className="submiting">Salvar</button>
+                            {successMessage && (<span>Curso cadastrado!!!</span>)}
+                        </form>
                     </div>
                 )}
             {cursos.map((val,key) =>{

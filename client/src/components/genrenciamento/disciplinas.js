@@ -65,9 +65,10 @@ export default function Disciplinas(){
         <div>
             <Link to="/" className="homeButton">voltar para menu</Link>
             <h1>DISCIPLINAS</h1>
-            <button className="AddNew" onClick={useShowForm}>Nova Disciplina</button>
-            <button onClick={useDeleteForm} className="deleteItem">Deletar</button>
-            <button onClick={updateList} className="updateList">Atualizar</button>
+            <div class="buttonsAddDelete">
+                <button className="AddNew" onClick={useShowForm}>Nova Disciplina</button>
+                <button onClick={useDeleteForm} className="deleteItem">Deletar</button>
+            </div>
             <div className="tableList">
                 <span className="titleList">
                     <span className="atributo">Código</span>
@@ -77,46 +78,46 @@ export default function Disciplinas(){
                 <hr />
                 {deleteForm && (
                     <div className="formDelete">
-                    <label>
-                        Código do Disciplina que deseja remover:
-                        <input type="text" 
-                            value={cod_disc}
-                            onChange={(e) => setCodDisc(e.target.value)}
-                            required
-                        />
-                    </label>
-                    <button onClick={deleteItem}>Remover</button>
-                    {deleteMessage && (<span>Disciplina Deletada!!!</span>)}
+                        <form onSubmit={deleteItem}>
+                        <button className="closePopUp" onClick={e=>{setDeleteForm(false)}}>X</button>
+                            <h1 className="formtitle" style={{marginBottom: '15px'}}>Deleção</h1>
+                            Código do Disciplina que deseja remover:
+                            <input type="text"
+                                value={cod_disc}
+                                onChange={(e) => setCodDisc(e.target.value)}
+                                required
+                            />
+                            <button type="submit" className="submiting">Remover</button>
+                            {deleteMessage && (<span>Disciplina Deletada!!!</span>)}
+                        </form>
                     </div>
                 )}
                 {showForm && (
                     <div className="formAdd">
-                    <label>
-                        Código da Disciplina:
-                        <input type="text" 
-                            value={cod_disc}
-                            onChange={(e) => setCodDisc(e.target.value)}
-                            required
-                        />
-                    </label>
-                    <label>
-                        Nome:
-                        <input type="text"
-                            value={nome}
-                            onChange={(e) => setNome(e.target.value)}
-                            required
-                        />
-                    </label>
-                    <label>
-                        Cpf do Prof:
-                        <input type="number"
-                            value={cpf_prof}
-                            onChange={(e) => setCpfProf(e.target.value)}
-                            required
-                        />
-                    </label>
-                    <button onClick={addNew}>Salvar</button>
-                    {successMessage && (<span>Disciplina cadastrada!!!</span>)}
+                        <form onClick={addNew}>
+                        <button className="closePopUp" onClick={e=>{setShowForm(false)}}>X</button>
+                            <h1 className="formtitle" style={{marginBottom: '15px'}}>Cadastro</h1>
+                            Código da Disciplina:
+                            <input type="text"
+                                value={cod_disc}
+                                onChange={(e) => setCodDisc(e.target.value)}
+                                required
+                            />
+                            Nome:
+                            <input type="text"
+                                value={nome}
+                                onChange={(e) => setNome(e.target.value)}
+                                required
+                            />
+                            Cpf do Prof:
+                            <input type="number"
+                                value={cpf_prof}
+                                onChange={(e) => setCpfProf(e.target.value)}
+                                required
+                            />
+                            <button type="submit" className="submiting">Salvar</button>
+                            {successMessage && (<span>Disciplina cadastrada!!!</span>)}
+                        </form>
                     </div>
                 )}
                 {disc.map((val,key) =>{

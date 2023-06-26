@@ -4,15 +4,16 @@ import "../App.css"
 export default function Gerencia(){
     return(
         <div>
+            <Link to="/" className="homeButton">voltar para menu</Link>
             <h1>CollegeSystem</h1>
 
             <nav className="navInicial">
             <Link to="/gerenciamento/setor" className="navButtons">Setores</Link> <br />
-            <Link to="/cursos" className="navButtons">Cursos</Link> <br />
-            <Link to="/disc" className="navButtons">Disciplinas</Link> <br />
-            <Link to="/func" className="navButtons">Funcionários</Link> <br />
-            <Link to="/profs" className="navButtons">Professores</Link> <br />
-            <Link to="/alunos" className="navButtons">Alunos</Link>
+            <Link to="/gerenciamento/cursos" className="navButtons">Cursos</Link> <br />
+            <Link to="/gerenciamento/disc" className="navButtons">Disciplinas</Link> <br />
+            <Link to="/gerenciamento/func" className="navButtons">Funcionários</Link> <br />
+            <Link to="/gerenciamento/profs" className="navButtons">Professores</Link> <br />
+            <Link to="/gerenciamento/alunos" className="navButtons">Alunos</Link>
             </nav>
         </div>
     )

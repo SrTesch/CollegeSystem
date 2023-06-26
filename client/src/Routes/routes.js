@@ -15,14 +15,14 @@ const Rotas = () => {
        <BrowserRouter>
         <Routes>
             <Route path="/" element={<Home />} exact />
-            <Route path ="/gerenciamento/*" element={<Gerencia />} exact>
-                <Route path="setor" element={<Setor />}/>
-                <Route path="cursos" element={<Cursos />}/>
-                <Route path="func" element={<Func />}/>
-                <Route path="disc" element={<Disciplinas />}/>
-                <Route path="profs" element={<Professores />}/>
-                <Route path="alunos" element={<Alunos />}/>
-            </Route>
+            <Route path ="/gerenciamento" element={<Gerencia />} exact/>
+            <Route path="/gerenciamento/setor" element={<Setor />}/>
+            <Route path="/gerenciamento/cursos" element={<Cursos />}/>
+            <Route path="/gerenciamento/func" element={<Func />}/>
+            <Route path="/gerenciamento/disc" element={<Disciplinas />}/>
+            <Route path="/gerenciamento/profs" element={<Professores />}/>
+            <Route path="/gerenciamento/alunos" element={<Alunos />}/>
+
         </Routes>
        </BrowserRouter>
    )

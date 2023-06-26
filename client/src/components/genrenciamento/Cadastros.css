@@ -9,6 +9,12 @@
 h1{
     text-align: center;
 }
+
+.buttonsAddDelete{
+    position: absolute;
+    right: 20px;
+}
+
 .deleteItem{
     text-decoration: none;
     color: white;
@@ -21,9 +27,8 @@ h1{
     text-shadow: 1px 1px 1px #00000081;
     font-weight: bolder;
     cursor: pointer;
-    position: absolute;
-    right: 117px;
 }
+
 .homeButton{
     text-decoration: none;
     color: white;
@@ -36,23 +41,8 @@ h1{
     text-shadow: 1px 1px 1px #00000081;
     font-weight: bolder;
 }
-.updateList{
-    text-decoration: none;
-    color: white;
-    background-color: var(--cor2h);
-    border-radius: 10px;
-    transition-duration: .3s;
-    margin-bottom: 5px;
-    border: 2px solid var(--cor2h);
-    text-shadow: 1px 1px 1px #00000081;
-    font-weight: bolder;
-    cursor: pointer;
-    padding: 7px;
-    position: absolute;
-    right: 20px;
-}
 
-.updateList:hover, .AddNew:hover, .homeButton:hover, .deleteItem:hover{
+.AddNew:hover, .homeButton:hover, .deleteItem:hover{
     box-shadow: 2px 2px 2px #f56e6488;
     border: 2px solid var(--cor0);
 }
@@ -69,8 +59,6 @@ h1{
     text-shadow: 1px 1px 1px #00000081;
     font-weight: bolder;
     cursor: pointer;
-    position: absolute;
-    right: 197px;
 }
 
 
@@ -103,3 +91,9 @@ h1{
 .atributo{
     width: 300px;
 }
+
+.formtitle{
+    background-color: var(--cor0);
+    color: white;
+}
+/* Cadastros.css */
