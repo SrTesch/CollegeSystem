@@ -88,7 +88,7 @@ export default function Disciplinas(){
                                 required
                             />
                             <button type="submit" className="submiting">Remover</button>
-                            {deleteMessage && (<span>Disciplina Deletada!!!</span>)}
+                            {deleteMessage && (<span className="confirmation">Disciplina Deletada!!!</span>)}
                         </form>
                     </div>
                 )}
@@ -116,7 +116,7 @@ export default function Disciplinas(){
                                 required
                             />
                             <button type="submit" className="submiting">Salvar</button>
-                            {successMessage && (<span>Disciplina cadastrada!!!</span>)}
+                            {successMessage && (<span className="confirmation">Disciplina cadastrada!!!</span>)}
                         </form>
                     </div>
                 )}

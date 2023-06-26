@@ -89,7 +89,7 @@ export default function Cursos(){
                                 required
                             />
                             <button className="submiting" type="submit">Remover</button>
-                            {deleteMessage && (<span>Curso Deletado!!!</span>)}
+                            {deleteMessage && (<span className="confirmation">Curso Deletado!!!</span>)}
                         </form>
                     </div>
                 )}
@@ -117,7 +117,7 @@ export default function Cursos(){
                                 required
                             />
                             <button type="submit" className="submiting">Salvar</button>
-                            {successMessage && (<span>Curso cadastrado!!!</span>)}
+                            {successMessage && (<span className="confirmation">Curso cadastrado!!!</span>)}
                         </form>
                     </div>
                 )}

@@ -94,7 +94,7 @@ export default function Func(){
                                 required
                             />
                             <button type="submit" className="submiting">Remover</button>
-                            {deleteMessage && (<span>Funcionário Deletado!!!</span>)}
+                            {deleteMessage && (<span className="confirmation">Funcionário Deletado!!!</span>)}
                         </form>
                     </div>
                 )}
@@ -134,7 +134,7 @@ export default function Func(){
                                 required
                             />
                             <button type="submit" className="submiting">Salvar</button>
-                            {successMessage && (<span>Funcionário cadastrado!!!</span>)}
+                            {successMessage && (<span className="confirmation">Funcionário cadastrado!!!</span>)}
                         </form>
                     </div>
                 )}

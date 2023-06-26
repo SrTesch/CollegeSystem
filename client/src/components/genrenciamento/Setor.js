@@ -86,7 +86,7 @@ export default function Setor(){
                                 required
                             />
                             <button className="submiting" type="submit">Remover</button>
-                            {deleteMessage && (<span>Setor Deletado!!!</span>)}
+                            {deleteMessage && (<span className="confirmation">Setor Deletado!!!</span>)}
                         </form>
                     </div>
                 )}
@@ -109,7 +109,7 @@ export default function Setor(){
                                 required
                             />
                             <button className="submiting" type="submit">Salvar</button>
-                            {successMessage && (<span>Setor cadastrado!!!</span>)}
+                            {successMessage && (<span className="confirmation">Setor cadastrado!!!</span>)}
                         </form>
                     </div>
                 )}

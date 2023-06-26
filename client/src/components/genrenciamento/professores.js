@@ -112,7 +112,7 @@ export default function Professores(){
                                 required
                             />
                             <button type="submit" className="submiting">Remover</button>
-                            {deleteMessage && (<span>Professor Deletado!!!</span>)}
+                            {deleteMessage && (<span className="confirmation">Professor Deletado!!!</span>)}
                         </form>
                     </div>
                 )}
@@ -170,7 +170,7 @@ export default function Professores(){
                                 required
                             />
                             <button type="submit" className="submiting">Salvar</button>
-                            {successMessage && (<span>Professor cadastrado!!!</span>)}
+                            {successMessage && (<span className="confirmation">Professor cadastrado!!!</span>)}
                         </form>
                     </div>
                 )}

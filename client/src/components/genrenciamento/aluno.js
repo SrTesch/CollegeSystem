@@ -100,7 +100,7 @@ export default function Alunos(){
                                 required
                             />
                             <button className="submiting" type="submit">Remover</button>
-                            {deleteMessage && (<span>Aluno Deletado!!!</span>)}
+                            {deleteMessage && (<span className="confirmation">Aluno Deletado!!!</span>)}
                         </form>
                     </div>
                 )}
@@ -140,7 +140,7 @@ export default function Alunos(){
                                 required
                             />
                             <button className="submiting" type="submit">Salvar</button>
-                            {successMessage && (<span>Aluno cadastrado!!!</span>)}
+                            {successMessage && (<span className="confirmation">Aluno cadastrado!!!</span>)}
                         </form>
                     </div>
                 )}
