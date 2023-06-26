@@ -7,12 +7,7 @@ export default function Home(){
             <h1>CollegeSystem</h1>
 
             <nav className="navInicial">
-            <Link to="/setor" className="navButtons">Setores</Link> <br />
-            <Link to="/cursos" className="navButtons">Cursos</Link> <br />
-            <Link to="/disc" className="navButtons">Disciplinas</Link> <br />
-            <Link to="/func" className="navButtons">Funcionários</Link> <br />
-            <Link to="/profs" className="navButtons">Professores</Link> <br />
-            <Link to="/alunos" className="navButtons">Alunos</Link>
+            <Link to="/gerenciamento/" className="navButtons">Gerenciar Cadastros</Link> <br />
             </nav>
         </div>
     )
