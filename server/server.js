@@ -11,7 +11,7 @@ app.use(express.json())
 const db = mysql.createConnection({
     user: "root",
     host: "localhost",
-    password: "password",
+    password: "root",
     database: "college_system"
 });
 
@@ -177,11 +177,12 @@ app.post('/cadastroProf', (req,res)=>{
     const nome = req.body.nome;
     const telefone = req.body.telefone
     const endereco = req.body.endereco;
+    const data_contratacao = req.body.data_contratacao;
     const salario = req.body.salario;
     const ativo = req.body.ativo;
     const cod_curso = req.body.cod_curso;
 
-    db.query('INSERT INTO professores(CPF, nome, telefone, endereco, salário, ativo, cod_curso) VALUES (?,?,?,?,?,?,?)', [CPF, nome,telefone, endereco, salario,ativo, cod_curso], (err, result) =>{
+    db.query('INSERT INTO professores(CPF, nome, telefone, endereco, data_contratacao, salario, ativo, cod_curso) VALUES (?,?,?,?,?,?,?,?)', [CPF, nome,telefone, endereco, data_contratacao, salario,ativo, cod_curso], (err, result) =>{
         if(err)
             res.send(err);
         else{

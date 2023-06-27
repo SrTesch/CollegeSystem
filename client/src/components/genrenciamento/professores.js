@@ -10,6 +10,12 @@ export default function Professores(){
         updateList();
     }, []);
 
+    const changeDate = (date) =>{
+        let dateObj = new Date(date);
+        let formattedDate = dateObj.toLocaleDateString();
+        return formattedDate;
+    }
+
     const updateList = () =>{
         Axios.get("http://localhost:3001/getProf").then((response)=>{
           console.log(response.data);
@@ -175,6 +181,7 @@ export default function Professores(){
                     </div>
                 )}
                 {funcs.map((val,key) =>{
+                    val.data_contratacao = changeDate(val.data_contratacao);
                     return(
                         <span className="itemList">
                         <span className="atributo">

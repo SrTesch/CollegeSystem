@@ -143,7 +143,7 @@ export default function Matricula(){
                         </form>
                     </div>
                 )}
-            {mats.map((val,key) =>{
+            {Array.from(mats).map((val,key) =>{
                 val.data_inicio = changeDate(val.data_inicio);
                 return(
                     <span className="itemList">
