@@ -8,6 +8,7 @@ export default function Home(){
 
             <nav className="navInicial">
             <Link to="/gerenciamento/" className="navButtons">Gerenciar Cadastros</Link> <br />
+            <Link to="/consultas/" className="navButtons">Consultas</Link> <br />
             </nav>
         </div>
     )

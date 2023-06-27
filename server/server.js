@@ -103,7 +103,7 @@ app.post('/cadastroDisc', (req, res)=>{
         if(err)
         res.send(err);
         else
-        res.send("Disciplina cadastro com sucesso!");
+        res.send("Disciplina cadastrada com sucesso!");
     });
 });
 
@@ -252,6 +252,145 @@ app.delete('/deleteAlum', (req, res)=>{
         }
     })
 });
+
+//Matriculas
+app.post('/cadastroMat', (req, res)=>{
+    const cod_disc = req.body.cod_disc;
+    const CPF_aluno = req.body.CPF_aluno;
+    const data_inicio = req.body.data_inicio;
+
+    db.query('INSERT INTO matricula(cod_disc, CPF_aluno, data_inicio) VALUES (?,?,?)', [cod_disc, CPF_aluno, data_inicio], (err, result)=>{
+        if(err){
+            console.log(err);
+            res.send(err);
+        }else
+            res.send("Matrícula efetuada com sucesso!");
+    })
+});
+
+app.get('/getMat', (req,res)=>{
+    db.query('SELECT d.nome AS disciplina_nome, a.nome AS aluno_nome, m.data_inicio FROM matricula m JOIN aluno a ON m.CPF_aluno = a.CPF JOIN disciplina d ON m.cod_disc = d.cod_disc;', (err,result)=>{
+        if(err)
+            res.send(err);
+        else
+            res.send(result);
+    })
+});
+
+app.delete('/deleteMat', (req, res)=>{
+    const cod_disc = req.body.cod_disc
+    const CPF_aluno = req.body.CPF_aluno
+    db.query('DELETE FROM matricula WHERE cod_disc = ? and CPF_aluno = ?', [cod_disc, CPF_aluno], (err,result) =>{
+        if(err){
+            console.log(err);
+            res.send(err);
+        }else{
+            console.log(result);
+            res.send("Matrícula removida com sucesso!")
+        }
+    })
+});
+
+//Notas
+app.post('/lancarNota', (req, res)=>{
+    const cod_disc = req.body.cod_disc;
+    const CPF_aluno = req.body.CPF_aluno;
+    const nota = req.body.nota;
+
+    db.query('INSERT INTO notas(cod_disc, CPF_aluno, nota) VALUES (?,?,?)', [cod_disc, CPF_aluno, nota], (err, result)=>{
+        if(err){
+            console.log(err);
+            res.send(err);
+        }else
+            res.send("Nota Lançada com sucesso!");
+    })
+});
+
+app.get('/getNotas', (req,res)=>{
+    db.query('SELECT d.nome AS disciplina_nome, a.nome AS aluno_nome, n.nota FROM notas n JOIN aluno a ON n.CPF_aluno = a.CPF JOIN disciplina d ON n.cod_disc = d.cod_disc ORDER BY aluno_nome DESC;', (err,result)=>{
+        if(err)
+            res.send(err);
+        else
+            res.send(result);
+    })
+});
+
+app.delete('/deleteNota', (req, res)=>{
+    const cod_disc = req.body.cod_disc;
+    const CPF_aluno = req.body.CPF_aluno;
+    const nota = req.body.nota;
+    db.query('DELETE FROM notas WHERE cod_disc = ? and CPF_aluno = ? and nota = ?', [cod_disc, CPF_aluno, nota], (err,result) =>{
+        if(err){
+            console.log(err);
+            res.send(err);
+        }else{
+            console.log(result);
+            res.send("Nota excluída com sucesso!")
+        }
+    })
+});
+
+
+//CONSULTAS
+
+// old query
+// 'SELECT d.nome AS disciplina_nome, a.nome AS aluno_nome, m.data_inicio FROM matricula m JOIN aluno a ON m.CPF_aluno = a.CPF JOIN disciplina d ON m.cod_disc = d.cod_disc;'
+
+app.get('/getTurmasAlunos', (req,res)=>{
+    db.query(`
+    SELECT d.cod_disc, d.nome AS disciplina_nome, COUNT(m.CPF_aluno) AS num_alunos
+    FROM matricula AS m
+    JOIN disciplina AS d ON m.cod_disc = d.cod_disc
+    GROUP BY m.cod_disc, d.nome
+    ORDER BY num_alunos DESC; 
+    `,  (err,result)=>{
+        if(err)
+            res.send(err);
+        else
+            res.send(result);
+    })
+});
+
+app.get('/getNumProfAtivos', (req,res)=>{
+    db.query('select cod_curso, COUNT(*) as num_professores from professores where ativo = true group by cod_curso order by num_professores desc;',  (err,result)=>{
+        if(err)
+            res.send(err);
+        else
+            res.send(result);
+    })
+});
+
+app.get('/getMediaSalarial', (req,res)=>{
+    db.query('select cod_curso, AVG(salario) as media_salarial from professores group by cod_curso;',
+    (err,result)=>{
+        if(err)
+            res.send(err);
+        else
+            res.send(result);
+    })
+});
+
+app.get('/getCursoProf', (req,res)=>{
+    db.query('select CPF, nome, COUNT(cod_curso) as quantidade_cursos from professores group by CPF, nome order by quantidade_cursos, nome;',
+    (err,result)=>{
+        if(err)
+            res.send(err);
+        else
+            res.send(result);
+    })
+});
+
+app.get('/getProfAntigo', (req,res)=>{
+    db.query('select CPF, nome, data_contratacao from professores order by data_contratacao asc limit 1;',
+    (err,result)=>{
+        if(err)
+            res.send(err);
+        else
+            res.send(result);
+    })
+});
+
+
 app.listen(3001, ()=>{
     console.log("Wow, your server is running on port 3001")
 });

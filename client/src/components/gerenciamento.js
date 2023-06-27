@@ -13,7 +13,9 @@ export default function Gerencia(){
             <Link to="/gerenciamento/disc" className="navButtons">Disciplinas</Link> <br />
             <Link to="/gerenciamento/func" className="navButtons">Funcionários</Link> <br />
             <Link to="/gerenciamento/profs" className="navButtons">Professores</Link> <br />
-            <Link to="/gerenciamento/alunos" className="navButtons">Alunos</Link>
+            <Link to="/gerenciamento/alunos" className="navButtons">Alunos</Link> <br />
+            <Link to="/gerenciamento/matriculas" className="navButtons">Matrículas</Link> <br />
+            <Link to="/gerenciamento/Notas" className="navButtons">Notas</Link>
             </nav>
         </div>
     )

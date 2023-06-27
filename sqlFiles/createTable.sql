@@ -40,6 +40,13 @@ create table professores(
   foreign key (cod_curso) references cursos(cod_curso)
 );
 
+-- Tabela disciplina
+create table disciplina (
+  cod_disc int primary key,
+  nome varchar(100) not null,
+  CPF_prof char(11) not null,
+  foreign key (CPF_prof) references professores(CPF)
+);
 -- Tabela Aluno
 create table aluno (
   CPF char(11) primary key,
@@ -49,16 +56,7 @@ create table aluno (
   ativo boolean
 );
 
--- Tabela disciplina
-create table disciplina (
-  cod_disc int primary key,
-  nome varchar(100) not null,
-  CPF_prof char(11) not null,
-  foreign key (CPF_prof) references professores(CPF)
-);
-
 -- Tabela Matrícula
-
 create table matricula(
 cod_disc int,
 CPF_aluno char(11),

@@ -96,4 +96,16 @@ h1{
     background-color: var(--cor0);
     color: white;
 }
-/* Cadastros.css */
+
+.consBut{
+    border: 1px solid white;
+    background-color: white;
+    border-radius: 5px;
+    padding: 4px;
+    margin-bottom: 8px;
+}
+
+.consBut:hover{
+    box-shadow: 1px 1px 1px var(--cor0);
+    border: 1px solid var(--cor0);
+}

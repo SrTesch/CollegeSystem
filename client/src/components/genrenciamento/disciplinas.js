@@ -6,6 +6,11 @@ import './Cadastros.css'
 export default function Disciplinas(){
     const [disc, setDisc] = useState([]);
 
+    
+    useEffect(()=>{
+        updateList();
+    }, []);
+    
     const updateList = () =>{
         Axios.get("http://localhost:3001/getDisc").then((response)=>{
           console.log(response.data);
@@ -13,11 +18,6 @@ export default function Disciplinas(){
           setDisc(response.data);
         });
     }
-
-    useEffect(()=>{
-        updateList();
-    }, []);
-
     const [showForm, setShowForm] = useState(false);
     const useShowForm = () =>{
         setShowForm(true);
@@ -37,6 +37,7 @@ export default function Disciplinas(){
             setCodDisc('');
             setCpfProf('');
             setNome('');
+            updateList('');
         })
     }
     
@@ -94,7 +95,7 @@ export default function Disciplinas(){
                 )}
                 {showForm && (
                     <div className="formAdd">
-                        <form onClick={addNew}>
+                        <form onSubmit={addNew}>
                         <button className="closePopUp" onClick={e=>{setShowForm(false)}}>X</button>
                             <h1 className="formtitle" style={{marginBottom: '15px'}}>Cadastro</h1>
                             Código da Disciplina:

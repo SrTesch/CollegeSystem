@@ -9,6 +9,9 @@ import Disciplinas from "../components/genrenciamento/disciplinas";
 import Professores from "../components/genrenciamento/professores";
 import Alunos from "../components/genrenciamento/aluno";
 import Gerencia from "../components/gerenciamento";
+import Matricula from "../components/genrenciamento/matrícula";
+import Notas from "../components/genrenciamento/notas";
+import Consultas from "../components/consultas";
 
 const Rotas = () => {
    return(
@@ -16,12 +19,15 @@ const Rotas = () => {
         <Routes>
             <Route path="/" element={<Home />} exact />
             <Route path ="/gerenciamento" element={<Gerencia />} exact/>
-            <Route path="/gerenciamento/setor" element={<Setor />}/>
-            <Route path="/gerenciamento/cursos" element={<Cursos />}/>
-            <Route path="/gerenciamento/func" element={<Func />}/>
-            <Route path="/gerenciamento/disc" element={<Disciplinas />}/>
-            <Route path="/gerenciamento/profs" element={<Professores />}/>
-            <Route path="/gerenciamento/alunos" element={<Alunos />}/>
+            <Route path="/gerenciamento/setor" element={<Setor />} />
+            <Route path="/gerenciamento/cursos" element={<Cursos />} />
+            <Route path="/gerenciamento/func" element={<Func />} />
+            <Route path="/gerenciamento/disc" element={<Disciplinas />} />
+            <Route path="/gerenciamento/profs" element={<Professores />} />
+            <Route path="/gerenciamento/alunos" element={<Alunos />} />
+            <Route path="/gerenciamento/matriculas" element={<Matricula />} />
+            <Route path="/gerenciamento/notas" element={<Notas />} />
+            <Route path="/consultas" element={<Consultas />} />
 
         </Routes>
        </BrowserRouter>
